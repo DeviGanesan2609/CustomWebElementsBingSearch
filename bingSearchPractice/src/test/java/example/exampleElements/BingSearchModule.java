@@ -22,7 +22,9 @@ public class BingSearchModule extends CustomWebElement {
     /**
      * The button, which triggers the search process.
      **/
-    @FindBy(id = "sb_form_go")
+    //Devi 10-Apr-2020: Updated the locator with xpath due to ElementNotInteractable Exception
+    //@FindBy(id = "sb_form_go")
+    @FindBy(xpath = "//label[@for='sb_form_go']")
     private WebButton searchButton;
 
     /**

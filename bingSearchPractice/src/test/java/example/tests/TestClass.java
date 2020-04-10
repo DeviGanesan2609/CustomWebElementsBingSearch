@@ -18,21 +18,21 @@ import java.util.concurrent.TimeUnit;
 /**
  * A simple example on how to use the custom elements in a test.
  **/
-public class TestClass {
-
+public class TestClass extends TestBase {
+	//Devi 10-Apr-2020: Moved page setup methods to TestBase class to make it generic
     /**
      * The driver which is used to interact with the browser.
-     **/
+     **//*
     private WebDriver webDriver;
 
-    /**
+    *//**
      * The set up method which creates the driver for each test and turns the implicit wait feature off.
-     **/
+     **//*
     @BeforeMethod
     public void setUp() {
         // Setup chrome driver via webdrivermanager for easy usage
       //  ChromeDriverManager.getInstance().setup();
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\Desktop\\LEARNING-Devi\\FreeCRmWorkSpace\\bingSearchPractice\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\git\\CustomWebElementsBingSearch\\bingSearchPractice\\chromedriver.exe");
         // Create it
         webDriver = new ChromeDriver();
 
@@ -40,15 +40,15 @@ public class TestClass {
         webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
-    /**
+    *//**
      * After a test is finished, ensure that the browser will be closed.
-     **/
+     **//*
     @AfterMethod
     public void tearDown() {
         if (webDriver != null) {
             webDriver.quit();
         }
-    }
+    }*/
 
     /**
      * A simple test, which searches via bing and opens the first result.
@@ -67,6 +67,6 @@ public class TestClass {
         PageFactory.initElements(new CustomElementFieldDecorator(webDriver, webDriver), bingPage);
         // Do the search and open result stuff
         bingPage.search("Test");
-        bingPage.openSearchResult(0);
+        bingPage.openSearchResult(1);
     }
 }
